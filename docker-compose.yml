@@ -1,7 +1,5 @@
-version: '3.8'
-
 services:
-  db:
+  database:
     image: mysql:8.0
     environment:
       MYSQL_ROOT_PASSWORD: rootpassword
@@ -21,7 +19,7 @@ services:
     ports:
       - "8000:8000"
     depends_on:
-      - db
+      - database
 
   frontend:
     build:
