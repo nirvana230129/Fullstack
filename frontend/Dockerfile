@@ -1,4 +1,10 @@
-FROM ubuntu:latest
-LABEL authors="arif_meilanov"
+FROM python:3.11.4-slim
 
-ENTRYPOINT ["top", "-b"]
+WORKDIR /app
+
+COPY requirements.txt requirements.txt
+RUN pip install -r requirements.txt
+
+COPY . .
+
+CMD ["flask", "run", "--host=0.0.0.0"]
